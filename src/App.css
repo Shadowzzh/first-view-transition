@@ -1,0 +1,23 @@
+#view-transition-root {
+  view-transition-name: container;
+}
+
+@keyframes opacity-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+::view-transition-old(container) {
+  animation: opacity-fade-out 1s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+
+::view-transition-new(container) {
+  animation: opacity-fade-in 1s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
