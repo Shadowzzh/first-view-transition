@@ -31,6 +31,13 @@ function App() {
         document.documentElement.style.setProperty('--transition-type', 'curtain');
         onToggleDark();
       }
+    },
+    {
+      label: 'ikun 效果',
+      onClick: () => {
+        document.documentElement.style.setProperty('--transition-type', 'ikun');
+        onToggleDark();
+      }
     }
   ];
   return (

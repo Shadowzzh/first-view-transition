@@ -54,3 +54,29 @@
 .dark::view-transition-new(curtain) {
   animation-name: curtain-fade-out;
 }
+
+::view-transition-group(ikun) {
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+::view-transition-new(ikun) {
+  mask: url('./assets/ikun.gif') center / 0 no-repeat;
+  animation: scale 3s;
+}
+::view-transition-old(ikun),
+.dark::view-transition-old(ikun) {
+  animation: scale 2s;
+}
+@keyframes scale {
+  0% {
+    mask-size: 0;
+  }
+  10% {
+    mask-size: 50vmax;
+  }
+  95% {
+    mask-size: 50vmax;
+  }
+  100% {
+    mask-size: 1000vmax;
+  }
+}
