@@ -1,7 +1,3 @@
-#view-transition-root {
-  view-transition-name: container;
-}
-
 @keyframes opacity-fade-in {
   from {
     opacity: 0;
@@ -20,4 +16,41 @@
 
 ::view-transition-new(container) {
   animation: opacity-fade-in 1s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+
+@keyframes curtain-fade-out {
+  from {
+    clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
+  }
+  to {
+    clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
+  }
+}
+
+@keyframes curtain-fade-in {
+  from {
+    clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
+  }
+  to {
+    clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
+  }
+}
+
+::view-transition-group(curtain) {
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+::view-transition-old(curtain),
+.dark::view-transition-old(curtain) {
+  animation: none;
+  z-index: -1;
+}
+
+::view-transition-new(curtain) {
+  animation-name: curtain-fade-in;
+}
+
+.dark::view-transition-new(curtain) {
+  animation-name: curtain-fade-out;
 }

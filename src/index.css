@@ -4,6 +4,7 @@
 @layer base {
   html {
     @apply bg-white dark:bg-neutral-950;
+    view-transition-name: var(--transition-type);
     min-height: 100vh;
   }
 }

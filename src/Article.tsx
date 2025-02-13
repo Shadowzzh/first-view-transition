@@ -183,6 +183,10 @@ export const Article = memo(() => {
         <p className='text-gray-700 dark:text-gray-300 mt-4'>
           无论你是初学者还是资深开发者，都值得关注并尝试这一前沿技术，为你的项目增添一份细腻而自然的动画魅力。
         </p>
+
+        <p className='text-gray-700 dark:text-gray-300 mt-4'>
+          By <a href='https://chatgpt.com' className='text-blue-500'>ChatGPT</a>
+        </p>
       </section>
     </div>
   );
