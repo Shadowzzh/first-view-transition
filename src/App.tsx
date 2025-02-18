@@ -38,7 +38,15 @@ function App() {
         document.documentElement.style.setProperty('--transition-type', 'ikun');
         onToggleDark();
       }
-    }
+    },
+
+    {
+      label: '铁山靠效果',
+      onClick: () => {
+        document.documentElement.style.setProperty('--transition-type', 'tieshankao');
+        onToggleDark();
+      }
+    },
   ];
   return (
     <div className={cn('w-screen h-screen')}>

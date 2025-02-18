@@ -80,3 +80,29 @@
     mask-size: 1000vmax;
   }
 }
+
+::view-transition-group(tieshankao) {
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+::view-transition-new(tieshankao) {
+  mask: url('./assets/tieshankao.gif') center / 0 no-repeat;
+  animation: tieshankao 3s;
+}
+::view-transition-old(tieshankao),
+.dark::view-transition-old(tieshankao) {
+  animation: tieshankao 2s;
+}
+@keyframes tieshankao {
+  0% {
+    mask-size: 0;
+  }
+  10% {
+    mask-size: 50vmax;
+  }
+  95% {
+    mask-size: 50vmax;
+  }
+  100% {
+    mask-size: 1000vmax;
+  }
+}
