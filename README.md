@@ -7,6 +7,31 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Docker 部署
+
+本项目支持使用 Docker 进行构建和部署。以下是使用 Docker 部署的步骤：
+
+### 构建 Docker 镜像
+
+```bash
+docker build -t first-view-transition .
+```
+
+### 运行 Docker 容器
+
+```bash
+docker run -p 8080:80 first-view-transition
+```
+
+这将启动应用并在 http://localhost:8080 上可访问。
+
+### Docker 部署说明
+
+- Dockerfile 使用多阶段构建，第一阶段使用 Node 环境构建应用，第二阶段使用 Nginx 部署静态文件
+- nginx.conf 文件包含针对单页应用的优化配置
+- 静态资源设置了缓存策略，提高访问速度
+- 启用了 gzip 压缩，减少网络传输量
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
