@@ -25,6 +25,28 @@ docker run -p 8080:80 first-view-transition
 
 这将启动应用并在 http://localhost:8080 上可访问。
 
+### 使用 Docker Compose 部署
+
+我们也提供了 Docker Compose 配置，可以更方便地部署应用：
+
+```bash
+# 构建并启动容器
+docker-compose up -d
+
+# 查看容器日志
+docker-compose logs -f
+
+# 停止并移除容器
+docker-compose down
+```
+
+使用 Docker Compose 部署的优势：
+- 更简单的命令行操作
+- 更易于管理的配置
+- 支持健康检查
+- 配置了日志卷挂载，方便查看日志
+- 自动重启配置确保应用高可用性
+
 ### Docker 部署说明
 
 - Dockerfile 使用多阶段构建，第一阶段使用 Node 环境构建应用，第二阶段使用 Nginx 部署静态文件

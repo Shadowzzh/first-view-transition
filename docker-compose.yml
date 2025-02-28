@@ -1,0 +1,50 @@
+# Docker Compose 配置文件版本
+version: "3.8"
+
+services:
+  # 应用服务配置
+  app:
+    # 构建配置
+    build:
+      # 构建上下文为当前目录
+      context: .
+      # 使用当前目录下的Dockerfile
+      dockerfile: Dockerfile
+    # 容器名称
+    container_name: first-view-transition
+    # 重启策略：除非手动停止，否则总是重启
+    restart: unless-stopped
+    # 端口映射：将容器内的80端口映射到主机的8080端口
+    ports:
+      - "88:80"
+    # 挂载卷：将本地文件挂载到容器内
+    volumes:
+      # 挂载Nginx配置文件
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      # 挂载日志目录
+      - ./logs:/var/log/nginx
+    # 环境变量设置
+    environment:
+      - NODE_ENV=production
+    # 网络配置：连接到app-network网络
+    networks:
+      - app-network
+    # 健康检查配置
+    healthcheck:
+      # 检查命令：使用curl测试本地80端口
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      # 检查间隔：每30秒
+      interval: 30s
+      # 超时时间：10秒
+      timeout: 10s
+      # 重试次数：3次
+      retries: 3
+      # 启动等待时间：10秒
+      start_period: 10s
+
+# 网络配置
+networks:
+  # 定义app-network网络
+  app-network:
+    # 网络驱动类型：bridge（桥接模式）
+    driver: bridge
