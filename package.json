@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "^6.28.1",
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {

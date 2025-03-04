@@ -9,7 +9,7 @@ export const Article = memo(() => {
       {/* 文章标题和引言 */}
       <header className='mb-8'>
         <h1 className='text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4'>
-          探索 View Transition 技术：打造流畅用户体验的新利器
+          探索 <span className="transition">View Transition</span> 技术：打造流畅用户体验的新利器
         </h1>
         <p className='text-gray-600 dark:text-gray-300'>
           在现代 Web 开发中，用户体验始终是设计与实现的重中之重。页面切换、状态转换如果处理不当，
