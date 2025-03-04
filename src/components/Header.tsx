@@ -6,19 +6,26 @@ export const Header = () => {
 
   const onClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
-    document.startViewTransition(() => {
-      flushSync(() => {
-        navigate(path);
+
+    // 检查浏览器是否支持 View Transition API
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        flushSync(() => {
+          navigate(path);
+        });
       });
-    });
+    } else {
+      // 降级处理
+      navigate(path);
+    }
   };
 
   return (
-    <div>
-      <a href="/" onClick={(e) => onClick(e, "/")}>
+    <div className="flex gap-4 mb-6">
+      <a href="/" className="text-blue-500 hover:text-blue-700" onClick={(e) => onClick(e, "/")}>
         首页
       </a>
-      <a href="/about" onClick={(e) => onClick(e, "/about")}>
+      <a href="/about" className="text-blue-500 hover:text-blue-700" onClick={(e) => onClick(e, "/about")}>
         关于
       </a>
     </div>

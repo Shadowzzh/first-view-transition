@@ -1,10 +1,29 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   html {
     @apply bg-white dark:bg-neutral-950;
-    view-transition-name: var(--transition-type);
     min-height: 100vh;
   }
+}
+
+/* 全局过渡效果 */
+::view-transition-group(*),
+::view-transition-image-pair(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+.transition {
+  view-transition-name: transition;
+}
+::view-transition-group(transition),
+::view-transition-image-pair(transition),
+::view-transition-old(transition),
+::view-transition-new(transition) {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
 }
